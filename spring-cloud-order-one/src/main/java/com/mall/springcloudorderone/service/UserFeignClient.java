@@ -19,7 +19,7 @@ public interface UserFeignClient {
      * */
     // @GetMapping("/hello"
     @RequestMapping(value="/hello",method = RequestMethod.GET)
-    public String hello(@RequestParam("name") String name);
+     String hello(@RequestParam("name") String name);
 
     /**
      * 回退类需实现feign Client 接口
