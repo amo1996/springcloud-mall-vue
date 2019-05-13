@@ -1,32 +1,32 @@
 server:
   port: 8501
-#ÏîÄ¿ĞéÄâÂ·¾¶£º
+#é¡¹ç›®è™šæ‹Ÿè·¯å¾„ï¼š
 #  servlet:
 #    context-path: /spring-vue
 spring:
   cloud:
     gateway:
       routes:
- # Â·ÓÉ¹æÔòÅäÖÃ£º
+ # è·¯ç”±è§„åˆ™é…ç½®ï¼š
 #  ---------------  simple spring cloud gateway
-#         id: ×Ô¶¨ÒåµÄÂ·ÓÉID,Ó¦±£³ÖÎ¨Ò»
-#         uri:Ä¿±ê·şÎñµØÖ·
-#         predicates:Â·ÓÉÌõ¼ş£¬½ÓÊÕÒ»¸öÊäÈë²ÎÊı ·µ»ØÒ»¸ö²¼¶ûÖµ½á¹û¡£
-#         filters:¹ıÂË¹æÔò
-#   ÏÂÃæÕâ¸öÅäÖÃ µ±·ÃÎÊlocalhost:8501/spring-cloud  »áÌø×ªµ½https://www.baidu.com/springcloud
+#         id: è‡ªå®šä¹‰çš„è·¯ç”±ID,åº”ä¿æŒå”¯ä¸€
+#         uri:ç›®æ ‡æœåŠ¡åœ°å€
+#         predicates:è·¯ç”±æ¡ä»¶ï¼Œæ¥æ”¶ä¸€ä¸ªè¾“å…¥å‚æ•° è¿”å›ä¸€ä¸ªå¸ƒå°”å€¼ç»“æœã€‚
+#         filters:è¿‡æ»¤è§„åˆ™
+#   ä¸‹é¢è¿™ä¸ªé…ç½® å½“è®¿é—®localhost:8501/spring-cloud  ä¼šè·³è½¬åˆ°https://www.baidu.com/springcloud
        - id: test_route
          uri: https://www.baidu.com
          predicates:
          - Path=/spring-cloud
-#      ÊÇ·ñÓë·şÎñ×¢²áÓÚ·¢ÏÖ×é¼ş½øĞĞ½áºÏ£¬Í¨¹ı serviceId ×ª·¢µ½¾ßÌåµÄ·şÎñÊµÀı¡£
-#     Ä¬ÈÏÎª false£¬ÉèÎª true ±ã¿ªÆôÍ¨¹ı·şÎñÖĞĞÄµÄ×Ô¶¯¸ù¾İ serviceId ´´½¨Â·ÓÉµÄ¹¦ÄÜ¡£
+#      æ˜¯å¦ä¸æœåŠ¡æ³¨å†Œäºå‘ç°ç»„ä»¶è¿›è¡Œç»“åˆï¼Œé€šè¿‡ serviceId è½¬å‘åˆ°å…·ä½“çš„æœåŠ¡å®ä¾‹ã€‚
+#     é»˜è®¤ä¸º falseï¼Œè®¾ä¸º true ä¾¿å¼€å¯é€šè¿‡æœåŠ¡ä¸­å¿ƒçš„è‡ªåŠ¨æ ¹æ® serviceId åˆ›å»ºè·¯ç”±çš„åŠŸèƒ½ã€‚
       discovery:
         locator:
           enabled: true
 
-# Ã»ÓĞÅäÖÃÂ·ÓÉ¹æÔò»áÄ¬ÈÏ¸ù¾İserviceId ´´½¨Â·ÓÉ
-# ÏÖÔÚconsul ÉÏÃæÓĞÒ»¸ö provider-user µÄ·şÎñ
-# ·ÃÎÊlocalhost:8501/provider-user/hello  »á·ÃÎÊ  provider-user µÄhello ½Ó¿Ú
+# æ²¡æœ‰é…ç½®è·¯ç”±è§„åˆ™ä¼šé»˜è®¤æ ¹æ®serviceId åˆ›å»ºè·¯ç”±
+# ç°åœ¨consul ä¸Šé¢æœ‰ä¸€ä¸ª provider-user çš„æœåŠ¡
+# è®¿é—®localhost:8501/provider-user/hello  ä¼šè®¿é—®  provider-user çš„hello æ¥å£
     consul:
       host: localhost
       port: 8500
@@ -34,20 +34,20 @@ spring:
     name: spring-cloud-gateway
 
 
-#ÏÂÃæÕâ¸ö×÷ÓÃÊÇÔö¼ÓÒ»¸öÇëÇó²ÎÊı name=lz  ¹ıÂËÆ÷µÄ·½Ê½
-#uri ÊÇÌá¹©·şÎñµÄµØÖ· Ö±½Ó·ÃÎÊ localhost:8082/addRequest name=null
-#·ÃÎÊ localhost:8501/addRequest »áÌø×ªÖÁ8082/addRequest ²¢ÇÒĞ¯´ø²ÎÊıname=lz
-# ÅäÖÃ¾ßÌåµØÖ· Ö»×·¶ÔÒ»¸ö·şÎñ
-#ÅäÖÃlbĞ­ÒéÒÔ¼°·şÎñÃû »áÕë¶ÔËùÓĞ¸Ã·şÎñÃûµÄ·şÎñ£¬²¢ÇÒ»á¸ºÔØ¾ùºâµÄ·ÃÎÊ(ÂÖÑ¯)
+#ä¸‹é¢è¿™ä¸ªä½œç”¨æ˜¯å¢åŠ ä¸€ä¸ªè¯·æ±‚å‚æ•° name=lz  è¿‡æ»¤å™¨çš„æ–¹å¼
+#uri æ˜¯æä¾›æœåŠ¡çš„åœ°å€ ç›´æ¥è®¿é—® localhost:8082/addRequest name=null
+#è®¿é—® localhost:8501/addRequest ä¼šè·³è½¬è‡³8082/addRequest å¹¶ä¸”æºå¸¦å‚æ•°name=lz
+# é…ç½®å…·ä½“åœ°å€ åªè¿½å¯¹ä¸€ä¸ªæœåŠ¡
+#é…ç½®lbåè®®ä»¥åŠæœåŠ¡å ä¼šé’ˆå¯¹æ‰€æœ‰è¯¥æœåŠ¡åçš„æœåŠ¡ï¼Œå¹¶ä¸”ä¼šè´Ÿè½½å‡è¡¡çš„è®¿é—®(è½®è¯¢)
 
-#ÕâÀïÆäÊµÄ¬ÈÏÊ¹ÓÃÁËÈ«¾Ö¹ıÂËÆ÷ LoadBalancerClient £¬
-#µ±Â·ÓÉÅäÖÃÖĞ uri ËùÓÃµÄĞ­ÒéÎª lb Ê±£¨ÒÔuri: lb://user-providerÎªÀı£©
-#gateway ½«Ê¹ÓÃ LoadBalancerClient °Ñ user-provider
-#Í¨¹ı ×¢²áÖĞĞÄ ½âÎöÎªÊµ¼ÊµÄÖ÷»úºÍ¶Ë¿Ú£¬²¢½øĞĞ¸ºÔØ¾ùºâ¡£
+#è¿™é‡Œå…¶å®é»˜è®¤ä½¿ç”¨äº†å…¨å±€è¿‡æ»¤å™¨ LoadBalancerClient ï¼Œ
+#å½“è·¯ç”±é…ç½®ä¸­ uri æ‰€ç”¨çš„åè®®ä¸º lb æ—¶ï¼ˆä»¥uri: lb://user-providerä¸ºä¾‹ï¼‰
+#gateway å°†ä½¿ç”¨ LoadBalancerClient æŠŠ user-provider
+#é€šè¿‡ æ³¨å†Œä¸­å¿ƒ è§£æä¸ºå®é™…çš„ä¸»æœºå’Œç«¯å£ï¼Œå¹¶è¿›è¡Œè´Ÿè½½å‡è¡¡ã€‚
 #      routes:
 #        - id: add_request_parameter_filters
 ##          uri: http://localhost:8082
-##         uri: lb://Ó¦ÓÃ·şÎñÃû(serviceId)
+##         uri: lb://åº”ç”¨æœåŠ¡å(serviceId)
 #          uri: lb://user-provider
 #          filters:
 #          - AddRequestParameter=name,lz
@@ -55,8 +55,8 @@ spring:
 #          - Method=GET
 
 #-------------------------
-# ÏÂÃæÕâ¸öÅäÖÃµÄÒâË¼ÊÇ½ØÈ¡·ûºÏ/name/...Â·¾¶
-# localhost:8000/name/xxx/yyy  Ìø×ªÖÁlocalhost:8082/yyy  ½ØÈ¡Â·¾¶½ÚÊıÓÉÅäÖÃStripPrefix ¶¨Òå
+# ä¸‹é¢è¿™ä¸ªé…ç½®çš„æ„æ€æ˜¯æˆªå–ç¬¦åˆ/name/...è·¯å¾„
+# localhost:8000/name/xxx/yyy  è·³è½¬è‡³localhost:8082/yyy  æˆªå–è·¯å¾„èŠ‚æ•°ç”±é…ç½®StripPrefix å®šä¹‰
 #      routes:
 #      - id: prefixpath_route
 #        uri: http://localhost:8082
