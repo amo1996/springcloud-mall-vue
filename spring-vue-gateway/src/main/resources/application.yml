@@ -1,0 +1,20 @@
+server:
+  port: 8501
+#  servlet:
+#    context-path: /spring-vue
+spring:
+  cloud:
+    gateway:
+      routes:
+       - id: test_route
+         uri: https://www.baidu.com
+         predicates:
+         - Path=/spring-cloud
+      discovery:
+        locator:
+          enabled: true
+    consul:
+      host: localhost
+      port: 8500
+  application:
+    name: spring-cloud-gateway
