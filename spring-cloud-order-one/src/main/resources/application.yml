@@ -9,7 +9,20 @@ spring:
       port: 8500
       discovery:
         service-name: provider-order
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springcloud_mall?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
 #  为feign添加回退方法
 feign:
   hystrix:
     enabled: true
+#    会自动将数据库返回的列下划线去转成驼峰再进行set
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+#    控制台打印sql语句
+logging:
+  level:
+    com.mall.springcloudorderone.dao: DEBUG
